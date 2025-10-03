@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3 group">
             <Image
-              src="/logo.png"       
+              src="/logo.png"
               alt="Mizan Teck logo"
               width={96}
               height={10}
@@ -71,7 +71,9 @@ export default function Navbar() {
                 <span
                   className={[
                     "absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-[2px] rounded-full transition-all",
-                    isActive(href) ? "w-6 bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.7)]" : "w-0 bg-transparent",
+                    isActive(href)
+                      ? "w-6 bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.7)]"
+                      : "w-0 bg-transparent",
                   ].join(" ")}
                 />
               </li>
@@ -100,15 +102,22 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-50">
+        <div className="md:hidden fixed inset-0 z-50 ">
           {/* backdrop */}
-          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={() => setOpen(false)}
+          />
 
           {/* panel */}
-          <div className="absolute right-0 top-0 h-full w-[82%] max-w-[360px] bg-[#0b1324]/95 backdrop-blur-lg border-l border-white/10 shadow-2xl flex flex-col">
+          <div className="absolute right-0 top-0 h-full w-full  backdrop-blur-xl shadow-2xl flex flex-col">
             {/* header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-              <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+            <div className="flex items-center justify-between  px-5 py-4  border-b border-white/10">
+              <Link
+                href="/"
+                className="flex items-center gap-3"
+                onClick={() => setOpen(false)}
+              >
                 <Image
                   src="/logo.png"
                   alt="Mizan Teck logo"
@@ -123,26 +132,29 @@ export default function Navbar() {
                 className="p-2 rounded-lg text-white/90 hover:bg-white/10"
                 aria-label="Close menu"
               >
-                <X size={22} />
+                <X size={25} />
               </button>
             </div>
 
             {/* links */}
-            <div className="px-5 py-4 space-y-1">
+            <div className="px-5 py-4 space-y-2">
               {links.map(({ name, href }) => (
                 <Link
                   key={name}
                   href={href}
                   onClick={() => setOpen(false)}
                   className={[
-                    "block rounded-lg px-3 py-3 text-white/90 hover:text-white hover:bg-white/10",
-                    isActive(href) ? "bg-white/10 text-white ring-1 ring-white/10" : "",
+                    "block rounded-lg px-3 py-3 font-medium transition",
+                    isActive(href)
+                      ? "bg-emerald-500 text-white shadow ring-1 ring-emerald-400"
+                      : "bg-white/95 text-[#0b1324] hover:bg-gray-100",
                   ].join(" ")}
                 >
                   {name}
                 </Link>
               ))}
             </div>
+
 
             {/* CTA */}
             <div className="mt-auto p-5 border-t border-white/10">
@@ -154,7 +166,9 @@ export default function Navbar() {
                 <Calendar size={18} />
                 Book a discovery call
               </Link>
-              <p className="text-[12px] text-white/60 mt-2">Reply within 24 hours • NDA on request</p>
+              <p className="text-[12px] text-white/60 mt-2">
+                Reply within 24 hours • NDA on request
+              </p>
             </div>
           </div>
         </div>
