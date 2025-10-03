@@ -102,17 +102,17 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-50 ">
-          {/* backdrop */}
+        <div className="md:hidden fixed inset-0 z-50">
+          {/* backdrop with blur */}
           <div
-            className="absolute inset-0 bg-black/60"
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           />
 
-          {/* panel */}
-          <div className="absolute right-0 top-0 h-full w-full  backdrop-blur-xl shadow-2xl flex flex-col">
+          {/* panel - now with solid background */}
+          <div className="absolute right-0 top-0 h-full w-full bg-gradient-to-br from-[#08111f] via-[#0b1324] to-[#0d1629] shadow-2xl flex flex-col border-l-2 border-emerald-500/30">
             {/* header */}
-            <div className="flex items-center justify-between  px-5 py-4  border-b border-white/10">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-emerald-500/20 bg-[#08111f]/80">
               <Link
                 href="/"
                 className="flex items-center gap-3"
@@ -123,13 +123,13 @@ export default function Navbar() {
                   alt="Mizan Teck logo"
                   width={124}
                   height={30}
-                  className="object-contain drop-shadow-[0_0_14px_rgba(0,0,0,0.45)]"
+                  className="object-contain drop-shadow-[0_0_14px_rgba(16,185,129,0.3)]"
                 />
                 <span className="sr-only">Mizan Teck</span>
               </Link>
               <button
                 onClick={() => setOpen(false)}
-                className="p-2 rounded-lg text-white/90 hover:bg-white/10"
+                className="p-2 rounded-lg text-white/90 hover:bg-emerald-500/10 hover:text-emerald-400 transition-colors"
                 aria-label="Close menu"
               >
                 <X size={25} />
@@ -137,7 +137,7 @@ export default function Navbar() {
             </div>
 
             {/* links */}
-            <div className="px-5 py-4 space-y-2">
+            <div className="px-5 py-4 space-y-2 bg-[#0a0f1e]/70">
               {links.map(({ name, href }) => (
                 <Link
                   key={name}
@@ -155,9 +155,8 @@ export default function Navbar() {
               ))}
             </div>
 
-
             {/* CTA */}
-            <div className="mt-auto p-5 border-t border-white/10">
+            <div className="mt-auto p-5 border-t border-emerald-500/20 bg-[#08111f]/50">
               <Link
                 href="/contacts"
                 onClick={() => setOpen(false)}
