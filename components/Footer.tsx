@@ -55,7 +55,7 @@ export default function Footer({ dense = false }: { dense?: boolean }) {
             <h5 className="font-semibold mb-3">Company</h5>
             <ul className="space-y-2 text-sm text-white/85">
               <li><Link className="hover:underline" href="/about">About</Link></li>
-              <li><Link className="hover:underline" href="/team">Team</Link></li>
+              <li><Link className="hover:underline" href="/#">Team</Link></li>
               <li><Link className="hover:underline" href="/careers">Careers</Link></li>
               <li><Link className="hover:underline" href="/contacts">Contact</Link></li>
             </ul>
