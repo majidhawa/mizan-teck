@@ -93,7 +93,7 @@ export default function CareerPage() {
               <Calendar size={18} /> Register interest
             </Link>
             <a
-              href="mailto:mizanteck2013@gmail.com?subject=Talent%20Network%20Registration&body=Hi%20Mizan%20Teck%2C%0A%0AMy%20name%20is%20...%0ARole%20of%20interest%3A%20...%0ALocation%2FTimezone%3A%20...%0APortfolio%2FGitHub%3A%20...%0A%0AThanks!"
+              href="mailto:mizanteckteam@gmail.com?subject=Talent%20Network%20Registration&body=Hi%20Mizan%20Teck%2C%0A%0AMy%20name%20is%20...%0ARole%20of%20interest%3A%20...%0ALocation%2FTimezone%3A%20...%0APortfolio%2FGitHub%3A%20...%0A%0AThanks!"
               className="inline-flex items-center gap-2 rounded-2xl border border-white/30 px-6 py-3 hover:bg-white/10"
             >
               <Mail size={18} /> Email résumé
