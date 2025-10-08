@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3 group">
             <Image
-              src="/logo.png"       
+              src="/logo.png"
               alt="Mizan Teck logo"
               width={96}
               height={10}
@@ -100,14 +100,14 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-50">
+        <div className="md:hidden fixed inset-0 z-[100]">
           {/* backdrop */}
-          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" onClick={() => setOpen(false)} />
 
           {/* panel */}
-          <div className="absolute right-0 top-0 h-full w-[82%] max-w-[360px] bg-[#0b1324]/95 backdrop-blur-lg border-l border-white/10 shadow-2xl flex flex-col">
+          <div className="absolute right-0 top-0 h-full w-full bg-[#0b1324]/80 backdrop-blur-xl shadow-2xl flex flex-col">
             {/* header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+            <div className="flex items-center justify-between px-5 py-4 border-b bg-[#0a0f1e]/60 border-white/10">
               <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
                 <Image
                   src="/logo.png"
@@ -128,7 +128,7 @@ export default function Navbar() {
             </div>
 
             {/* links */}
-            <div className="px-5 py-4 space-y-1">
+            <div className="px-5 py-4 space-y-1 bg-[#0a0f1e]/75">
               {links.map(({ name, href }) => (
                 <Link
                   key={name}
@@ -145,7 +145,7 @@ export default function Navbar() {
             </div>
 
             {/* CTA */}
-            <div className="mt-auto p-5 border-t border-white/10">
+            <div className="mt-auto p-5 border-t border-white/10 bg-[#0a0f1e]/75">
               <Link
                 href="/contacts"
                 onClick={() => setOpen(false)}
@@ -157,6 +157,7 @@ export default function Navbar() {
               <p className="text-[12px] text-white/60 mt-2">Reply within 24 hours • NDA on request</p>
             </div>
           </div>
+
         </div>
       )}
     </nav>
