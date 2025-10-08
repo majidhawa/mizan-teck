@@ -77,7 +77,7 @@ export default function Footer({ dense = false }: { dense?: boolean }) {
           <div>
             <h5 className="font-semibold mb-3">Contact</h5>
             <ul className="space-y-2 text-sm text-white/85">
-              <li className="flex items-center gap-2"><Mail size={16}/> mizanteck2013@gmail.com</li>
+              <li className="flex items-center gap-2"><Mail size={16}/> mizanteckteam@gmail.com</li>
               <li className="flex items-center gap-2"><Phone size={16}/> +1 312 285 7262</li>
               <li className="flex items-center gap-2"><MapPin size={16}/> Remote • Global</li>
             </ul>
