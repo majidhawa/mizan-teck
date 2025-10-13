@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Mizan Teck — Practical software. Measurable outcomes.",
-  description: "Tahidi Corp × Mizan Investments: we build reliable web & mobile platforms, data pipelines, and AI-assisted workflows.",
+  title: "Pagram",
+  description: "Internet Solutions for Homes & Businesses",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

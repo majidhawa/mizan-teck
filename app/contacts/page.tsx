@@ -13,7 +13,7 @@ const fade = (d = 0) => ({
   transition: { duration: 0.4, delay: d },
 });
 
-export default function ContactsPage() {
+export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [ok, setOk] = useState<string | null>(null);
   const [err, setErr] = useState<string | null>(null);
@@ -24,17 +24,16 @@ export default function ContactsPage() {
     setErr(null);
     setLoading(true);
 
-    const form = e.currentTarget as HTMLFormElement; // cache BEFORE any await
+    const form = e.currentTarget as HTMLFormElement;
     const fd = new FormData(form);
 
-    // honeypot (spam trap)
+    // honeypot
     if ((fd.get("company") as string)?.trim()) {
       setLoading(false);
       setErr("Submission blocked (spam detected).");
       return;
     }
 
-    // Map to your EmailJS template variable names exactly
     const templateParams = {
       from_name: (fd.get("name") as string)?.trim(),
       reply_to: (fd.get("email") as string)?.trim(),
@@ -51,9 +50,8 @@ export default function ContactsPage() {
       }
 
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
       setOk("Thanks! We’ve received your message and will reply within 1 business day.");
-      form.reset(); // <- use the cached element
+      form.reset();
     } catch (error: any) {
       const details =
         typeof window !== "undefined" && process.env.NODE_ENV === "development"
@@ -68,15 +66,15 @@ export default function ContactsPage() {
 
   return (
     <div className="bg-white text-gray-900">
-      {/* ===== HERO ===== */}
+      {/* ===== HERO (brand gradient) ===== */}
       <header className="relative overflow-hidden text-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 via-[#0b1324] to-emerald-700 opacity-95" />
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-electric-purple via-midnight-blue to-neon-blue" />
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10" />
         <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
           <motion.h1 {...fade()} className="text-4xl md:text-5xl font-extrabold">
             Let’s talk
           </motion.h1>
-          <motion.p {...fade(0.05)} className="mt-4 text-white/85">
+          <motion.p {...fade(0.05)} className="mt-4 text-white/90">
             We usually reply within 1 business day.
           </motion.p>
         </div>
@@ -109,7 +107,7 @@ export default function ContactsPage() {
               name="name"
               required
               autoComplete="name"
-              className="mt-1 w-full border rounded-lg p-3 focus:ring-2 focus:ring-emerald-500 outline-none"
+              className="mt-1 w-full border rounded-lg p-3 focus:ring-2 focus:ring-electric-purple outline-none"
               placeholder="Jane Doe"
             />
           </div>
@@ -124,7 +122,7 @@ export default function ContactsPage() {
               required
               type="email"
               autoComplete="email"
-              className="mt-1 w-full border rounded-lg p-3 focus:ring-2 focus:ring-emerald-500 outline-none"
+              className="mt-1 w-full border rounded-lg p-3 focus:ring-2 focus:ring-electric-purple outline-none"
               placeholder="jane@company.com"
             />
           </div>
@@ -137,8 +135,8 @@ export default function ContactsPage() {
               id="message"
               name="message"
               required
-              className="mt-1 w-full border rounded-lg p-3 min-h-[140px] focus:ring-2 focus:ring-emerald-500 outline-none"
-              placeholder="Tell us a bit about your goals, timeline, and budget (if known)."
+              className="mt-1 w-full border rounded-lg p-3 min-h-[140px] focus:ring-2 focus:ring-electric-purple outline-none"
+              placeholder="Tell us a bit about your location, target speed, and preferred install time."
             />
           </div>
 
@@ -155,7 +153,7 @@ export default function ContactsPage() {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl font-semibold shadow hover:bg-emerald-700 disabled:opacity-70 disabled:cursor-not-allowed transition"
+            className="inline-flex items-center gap-2 bg-electric-purple text-white px-5 py-3 rounded-xl font-semibold shadow hover:bg-electric-purple/90 disabled:opacity-70 disabled:cursor-not-allowed transition"
           >
             <Send size={18} /> {loading ? "Sending..." : "Send"}
           </button>
@@ -166,41 +164,52 @@ export default function ContactsPage() {
           </p>
         </motion.form>
 
-        {/* Right: Info */}
+        {/* Right: Direct contact options */}
         <motion.div {...fade(0.1)} className="space-y-6">
-          <h2 className="text-2xl font-bold text-gray-900">Other ways to reach us</h2>
+          <h2 className="text-2xl font-bold text-gray-900">Contact directly</h2>
           <p className="text-gray-600">
-            Don’t like forms? Reach out via email or phone. We’d love to hear about your project.
+            Don’t like forms? Reach out via email or phone. We’ll help you pick a plan and schedule installation.
           </p>
+
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-center gap-3">
-              <Mail className="text-emerald-600" /> mizanteckteam@gmail.com
+              <Mail className="text-electric-purple" />{" "}
+              <a className="hover:underline" href="mailto:hello@pagram.co.ke">hello@pagram.co.ke</a>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="text-emerald-600" /> <a className="hover:underline" href="tel:+13122857262">+1 312 285 7262</a>
+              <Phone className="text-electric-purple" />{" "}
+              <a className="hover:underline" href="tel:+254704658766">+254 704 658 766</a>
             </li>
             <li className="flex items-center gap-3">
-              <MapPin className="text-emerald-600" /> US (Texas) &amp; Kenya (Remote)
+              <MapPin className="text-electric-purple" /> Nairobi CBD (placeholder) • Kenya
             </li>
           </ul>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="mailto:mizanteckteam@gmail.com"
-              className="inline-flex items-center gap-2 rounded-xl bg-gray-100 text-emerald-700 px-5 py-3 font-medium hover:bg-gray-200"
-            >
-              <Mail size={18} /> Email directly
-            </a>
-            <a
-              href="tel:+13122857262"
-              className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-medium hover:bg-gray-50"
-            >
-              <Phone size={18} /> Call us
-            </a>
+          <div className="pt-1 text-xs text-gray-500">
+            Typical first step: 30-min discovery call → brief plan with options & timelines.
           </div>
 
-          <div className="pt-4 text-xs text-gray-500">
-            Typical first step: 30-min discovery call → brief written plan with options and timelines.
+          {/* Map embed (pin Westlands for now) */}
+          <div className="rounded-2xl overflow-hidden border">
+            <iframe
+              title="Pagram temporary office location – Westlands, Nairobi"
+              aria-label="Map of Westlands Nairobi"
+              className="w-full h-64"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Westlands%2C%20Nairobi&output=embed"
+            />
+          </div>
+
+          <div>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 font-semibold hover:bg-gray-50"
+              href="https://www.google.com/maps/search/?api=1&query=Westlands%2C+Nairobi"
+            >
+              <MapPin size={18} /> Open in Google Maps
+            </a>
           </div>
         </motion.div>
       </section>

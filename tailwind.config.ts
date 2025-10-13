@@ -6,7 +6,16 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'deep-navy': '#0C0F22',
+        'midnight-blue': '#0F1230',
+        'electric-purple': '#7C5CFF',
+        'neon-blue': '#00B2FF',
+        
+        
+      },
+    },
   },
   plugins: [],
 } satisfies Config;

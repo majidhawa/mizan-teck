@@ -1,6 +1,6 @@
-# Mizan Teck — Next.js + Tailwind Site
+# Pagram ISP Website — Next.js + Tailwind Site
 
-A ready-to-run marketing site for Mizan Teck (Tahidi Corp × Mizan Investments).
+A modern marketing website for Pagram Internet Service Provider.
 
 ## Quick Start
 
@@ -19,11 +19,9 @@ npm run dev
 - `/` — Landing
 - `/about`
 - `/services`
-- `/team`
-- `/careers`
 - `/contacts`
-- `/projects` + sample case studies (`fintech`, `logistics`, `saas`)
+- `/faqs`
 
 ## Images
-Placeholder images live in `/public` (tech.jpg, mission2.jpg, vision.jpg, invest.jpg) and a simple logo `mizanteck.png`.
-Replace them with your real assets when ready.
+Placeholder images live in `/public` and logo files.
+Replace with actual Pagram assets when ready.
