@@ -335,9 +335,9 @@ export default function Page() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { tag:"Fintech", title:"Payments & Payouts at Scale", kpis:["TTV $1.5M+","Chargebacks <0.3%"], href:"/projects/fintech", img:"/cs-fintech.jpg" },
-            { tag:"Logistics", title:"Fleet & Route Optimization", kpis:["On-time +18%","Fuel −12%"], href:"/projects/logistics", img:"/cs-logistics.jpg" },
-            { tag:"SaaS", title:"AI-Assisted Ops Dashboards", kpis:["MTTR −35%","CSAT +22"], href:"/projects/saas", img:"/cs-saas.jpg" },
+            { tag:"Fintech", title:"Payments & Payouts at Scale", kpis:["TTV $1.5M+","Chargebacks <0.3%"], href:"/projects", img:"/cs-fintech.jpg" },
+            { tag:"Logistics", title:"Fleet & Route Optimization", kpis:["On-time +18%","Fuel −12%"], href:"/projects", img:"/cs-logistics.jpg" },
+            { tag:"SaaS", title:"AI-Assisted Ops Dashboards", kpis:["MTTR −35%","CSAT +22"], href:"/projects", img:"/cs-saas.jpg" },
           ].map((c) => (
             <a key={c.title} href={c.href} className="group rounded-2xl border overflow-hidden bg-white hover:shadow-2xl transition block">
               <div className="relative h-44"><Image src={c.img} alt={c.title} fill className="object-cover" /></div>
